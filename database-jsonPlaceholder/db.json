@@ -75,6 +75,55 @@
       "img": "pamgsit.jpg"
     }
   ],
-  "carts": [],
+  "carts": [
+    {
+      "id": "1",
+      "name": "Sate Ayam",
+      "price": 10000,
+      "img": "sate-ayam.jpg",
+      "quantity": "1",
+      "description": "Ga pake timun"
+    },
+    {
+      "id": "5",
+      "name": "Lontong Opor",
+      "price": 15000,
+      "img": "lontong-opor-ayam.jpg",
+      "quantity": "2",
+      "description": "gapake lontong"
+    },
+    {
+      "id": "1",
+      "name": "Sate Ayam",
+      "price": 10000,
+      "img": "sate-ayam.jpg",
+      "quantity": "2",
+      "description": "Ga pake ayam"
+    },
+    {
+      "id": "2",
+      "name": "Nasi Goreng",
+      "price": 12000,
+      "img": "nasi-goreng-telor.jpg",
+      "quantity": "1",
+      "description": "Ga pake nasi"
+    },
+    {
+      "id": "3",
+      "name": "Nasi Remes",
+      "price": 15000,
+      "img": "nasi-remes.jpg",
+      "quantity": "1",
+      "description": "Pedes"
+    },
+    {
+      "id": "1",
+      "name": "Sate Ayam",
+      "price": 10000,
+      "img": "sate-ayam.jpg",
+      "quantity": "2",
+      "description": "as"
+    }
+  ],
   "orders": []
 }

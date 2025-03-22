@@ -1,10 +1,16 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link, useParams } from "react-router";
-import { getDetailProducts } from "../../../services/product.service";
+import { addToCart, getDetailProducts } from "../../../services/product.service";
+import { useCart } from "../../../context/TotalCarts";
 
 const FoodDetailPage = () => {
   const { id } = useParams();
   const [product, setProduct] = useState({});
+  const [message, setMessage] = useState("");
+  const [messageType, setMessageType] = useState("success");
+  const jumlahRef = useRef(null);
+  const keteranganRef = useRef(null);
+  const { fetchCart } = useCart();
 
   useEffect(() => {
     getDetailProducts(id, (data) => {
@@ -12,9 +18,42 @@ const FoodDetailPage = () => {
     });
   }, [id]);
 
+  const handleAddToCart = (event) => {
+    event.preventDefault();
+
+    const data = {
+      id: product.id,
+      name: product.name,
+      price: product.price,
+      img: product.img,
+      quantity: event.target.jumlah_pemesanan.value,
+      description: event.target.keterangan.value,
+    };
+
+    addToCart(
+      data,
+      () => {
+        setMessage("Pesanan berhasil ditambahkan ke keranjang!");
+        setMessageType("success");
+        fetchCart();
+      },
+      () => {
+        setMessage("Gagal menambahkan pesanan. Silakan coba lagi.");
+        setMessageType("danger");
+      }
+    );
+  };
+
   return (
     <div className="food-detail">
       <div className="container">
+        {message && (
+          <div className={`alert alert-${messageType} alert-dismissible fade show`} role="alert">
+            {message}
+            <button type="button" className="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+        )}
+
         <div className="row mt-4">
           <div className="col">
             <nav aria-label="breadcrumb">
@@ -45,14 +84,14 @@ const FoodDetailPage = () => {
             <h4>
               Harga : <strong>Rp. {product.price}</strong>
             </h4>
-            <form>
+            <form onSubmit={handleAddToCart}>
               <div className="form-group">
                 <label for="jumlah_pemesanan">Jumlah Pemesanan</label>
-                <input type="number" className="form-control" v-model="pesan.jumlah_pemesanan" />
+                <input type="number" name="jumlah_pemesanan" className="form-control" />
               </div>
               <div className="form-group mt-2">
                 <label for="keterangan">Keterangan</label>
-                <textarea name="keterangan" className="form-control" placeholder="Keterangan spt : Pedes, Nasi Setengah..." v-model="pesan.keterangan"></textarea>
+                <textarea name="keterangan" className="form-control" placeholder="Keterangan spt : Pedes, Nasi Setengah..."></textarea>
               </div>
 
               <button type="submit" className="btn btn-success mt-2">
