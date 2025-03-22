@@ -38,7 +38,7 @@ const FoodsPage = () => {
       <div class="row mb-3">
         {products.map((product) => (
           <div className="col-md-4 mt-4" key={product.id}>
-            <CardProduct title={product.name} price={product.price} img={product.img} description={product.description} />
+            <CardProduct id={product.id} title={product.name} price={product.price} img={product.img} description={product.description} />
           </div>
         ))}
       </div>

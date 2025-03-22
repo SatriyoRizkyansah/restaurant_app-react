@@ -13,9 +13,21 @@ export const getAllProducts = (callback) => {
 
 export const getBestFoods = (callback) => {
   axios
-    .get("http://localhost:3000/products")
+    .get("http://localhost:3000/best-products")
     .then((res) => {
-      callback(res.data.slice(0, 3));
+      callback(res.data);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
+
+export const getDetailProducts = (id, callback) => {
+  axios
+    .get("http://localhost:3000/products/" + id)
+    .then((res) => {
+      callback(res.data);
+      console.log(res.data);
     })
     .catch((err) => {
       console.log(err);
