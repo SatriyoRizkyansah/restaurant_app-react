@@ -12,6 +12,7 @@ import FoodsPage from "./assets/components/pages/foods.jsx";
 import CartPage from "./assets/components/pages/carts.jsx";
 import FoodDetailPage from "./assets/components/pages/food_detail.jsx";
 import { CartProvider } from "./context/TotalCarts.jsx";
+import OrderPage from "./assets/components/pages/orders.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -24,6 +25,8 @@ createRoot(document.getElementById("root")).render(
           <Route path="/foods" element={<FoodsPage />} />
           <Route path="/cart" element={<CartPage />} />
           <Route path="/foods/:id" element={<FoodDetailPage />} />
+          <Route path="/foods/:id" element={<FoodDetailPage />} />
+          <Route path="/order" element={<OrderPage />}></Route>
         </Routes>
       </CartProvider>
       <Footer />

@@ -68,3 +68,18 @@ export const deleteCarts = (id, callback) => {
       console.log(err);
     });
 };
+
+export const checkoutOrder = (finalOrders, onSuccess) => {
+  axios
+    .post("http://localhost:3000/orders", finalOrders)
+    .then(() => {
+      finalOrders.orders.forEach((order) => {
+        deleteCarts(order.id);
+      });
+      if (onSuccess) onSuccess();
+    })
+    .catch((error) => {
+      console.error("Checkout gagal:", error);
+      alert("Checkout gagal! Silakan coba lagi.");
+    });
+};

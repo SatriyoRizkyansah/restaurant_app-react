@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router";
-import { deleteCarts, getCarts } from "../../../services/product.service";
+import { checkoutOrder, deleteCarts, getCarts } from "../../../services/product.service";
 import { useCart } from "../../../context/TotalCarts";
+import { useNavigate } from "react-router";
 
 const CartPage = () => {
   const [orders, setOrders] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
+  const navigate = useNavigate();
   // const { cart, setCart } = useCart();
 
   useEffect(() => {
@@ -22,6 +24,25 @@ const CartPage = () => {
     const total = orders.reduce((sum, order) => sum + order.price * order.quantity, 0);
     setTotalPrice(total);
   }, [orders]);
+
+  const handleCheckout = (event) => {
+    event.preventDefault();
+
+    const name = event.target.name.value;
+    const table_number = event.target.table_number.value;
+
+    if (name && table_number) {
+      const finalOrders = {
+        name: name,
+        table_number: table_number,
+        orders: orders,
+      };
+
+      checkoutOrder(finalOrders, () => {
+        navigate("/order");
+      });
+    }
+  };
 
   return (
     <div className="cart">
@@ -106,31 +127,29 @@ const CartPage = () => {
         </div>
 
         {/* <!-- Form Checkout --> */}
-        {/* <div className="row justify-content-end">
-        <div className="col-md-4">
-          <form v-on:submit.prevent="pesanFood">
-            <div className="form-group">
-              <label for="nama">Name</label>
-              <input type="text" className="form-control" id="nama" v-model="pesan.nama" />
-            </div>
-            <div className="form-group mt-2">
-              <label for="nomer_meja">Table Number</label>
-              <input type="text" className="form-control" id="nomer_meja" v-model="pesan.nomer_meja" />
-            </div>
-
-            <button type="submit" className="btn btn-success mt-2 float-end" @click="checkout">
-              <div className="float-start">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-cart-plus-fill mb-1 me-1" viewBox="0 0 16 16">
-                  <path
-                    d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0m7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0M9 5.5V7h1.5a.5.5 0 0 1 0 1H9v1.5a.5.5 0 0 1-1 0V8H6.5a.5.5 0 0 1 0-1H8V5.5a.5.5 0 0 1 1 0"
-                  />
-                </svg>
+        <div className="row justify-content-end">
+          <div className="col-md-4">
+            <form onSubmit={handleCheckout}>
+              <div className="form-group">
+                <label for="nama">Name</label>
+                <input type="text" className="form-control" id="nama" name="name" />
               </div>
-              Checkout
-            </button>
-          </form>
+              <div className="form-group mt-2">
+                <label for="nomer_meja">Table Number</label>
+                <input type="text" className="form-control" id="nomer_meja" name="table_number" />
+              </div>
+
+              <button type="submit" className="btn btn-success mt-2 float-end">
+                <div className="float-start">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-cart-plus-fill mb-1 me-1" viewBox="0 0 16 16">
+                    <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0m7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0M9 5.5V7h1.5a.5.5 0 0 1 0 1H9v1.5a.5.5 0 0 1-1 0V8H6.5a.5.5 0 0 1 0-1H8V5.5a.5.5 0 0 1 1 0" />
+                  </svg>
+                </div>
+                Checkout
+              </button>
+            </form>
+          </div>
         </div>
-        </div> */}
       </div>
     </div>
   );
