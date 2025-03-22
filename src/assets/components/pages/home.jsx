@@ -4,23 +4,6 @@ import CardProduct from "../Fragments/CardProduct";
 import { useEffect, useState } from "react";
 import { getAllProducts, getBestFoods } from "../../../services/product.service";
 
-// const products = [
-//   {
-//     id: 1,
-//     img: "nasi-goreng-telor.jpg",
-//     name: "Nasi Goreng",
-//     price: 15000,
-//     description: "Nasi Goreng Telor",
-//   },
-//   {
-//     id: 2,
-//     img: "nasi-remes.jpg",
-//     name: "Nasi Remes",
-//     price: 15000,
-//     description: "Nasi Remes",
-//   },
-// ];
-
 const HomePage = () => {
   const [products, setProducts] = useState([]);
 

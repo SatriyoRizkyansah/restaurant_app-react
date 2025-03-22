@@ -8,6 +8,7 @@ import HomePage from "./assets/components/pages/home.jsx";
 import { BrowserRouter, Routes, Route } from "react-router";
 import Footer from "./assets/components/Layouts/Footer.jsx";
 import Navbar from "./assets/components/Layouts/Navbar.jsx";
+import FoodsPage from "./assets/components/pages/foods.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -16,6 +17,7 @@ createRoot(document.getElementById("root")).render(
       <Navbar />
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="/foods" element={<FoodsPage />} />
         {/* <Route path="/register" element={} />
           <Route path="/products" element={} />
           <Route path="/profile" element={} />
