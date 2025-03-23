@@ -16,20 +16,24 @@ import OrderPage from "./assets/components/pages/orders.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    {/* <App /> */}
     <BrowserRouter>
       <CartProvider>
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/foods" element={<FoodsPage />} />
-          <Route path="/cart" element={<CartPage />} />
-          <Route path="/foods/:id" element={<FoodDetailPage />} />
-          <Route path="/foods/:id" element={<FoodDetailPage />} />
-          <Route path="/order" element={<OrderPage />}></Route>
-        </Routes>
+        <div className="d-flex flex-column min-vh-100">
+          <Navbar />
+
+          <main className="flex-grow-1">
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/foods" element={<FoodsPage />} />
+              <Route path="/cart" element={<CartPage />} />
+              <Route path="/foods/:id" element={<FoodDetailPage />} />
+              <Route path="/order" element={<OrderPage />} />
+            </Routes>
+          </main>
+
+          <Footer />
+        </div>
       </CartProvider>
-      <Footer />
     </BrowserRouter>
   </StrictMode>
 );

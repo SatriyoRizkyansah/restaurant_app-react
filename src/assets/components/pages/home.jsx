@@ -25,7 +25,7 @@ const HomePage = () => {
               </h2>
             </div>
             <div className="col">
-              <Link to="foods" className="btn btn-success float-end">
+              <Link to="foods" className="btn float-end" style={{ backgroundColor: "#FFC107" }}>
                 Show all{" "}
               </Link>
             </div>

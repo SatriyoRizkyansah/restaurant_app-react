@@ -75,7 +75,24 @@
       "img": "pamgsit.jpg"
     }
   ],
-  "carts": [],
+  "carts": [
+    {
+      "id": "2",
+      "name": "Nasi Goreng",
+      "price": 12000,
+      "img": "nasi-goreng-telor.jpg",
+      "quantity": "2",
+      "description": "Pedas"
+    },
+    {
+      "id": "6",
+      "name": "Pangsit",
+      "price": 4000,
+      "img": "pamgsit.jpg",
+      "quantity": "1",
+      "description": "Setengah Mateng"
+    }
+  ],
   "orders": [
     {
       "id": "50fd",
@@ -91,6 +108,12 @@
           "description": "Pedes"
         }
       ]
+    },
+    {
+      "id": "c861",
+      "name": "denny sumargo",
+      "table_number": "1",
+      "orders": []
     }
   ]
 }

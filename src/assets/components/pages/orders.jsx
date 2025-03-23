@@ -4,7 +4,7 @@ const OrderPage = () => {
       <div class="container">
         <div class="row justify-content-center mt-5">
           <div class="col text-center">
-            <img src="images/menus/menunggu.png" alt="Menunggu" width="300" />
+            <img src="images/menus/chef.png" alt="Menunggu" width="300" />
             <h2>
               <strong>Sukses!!</strong>
             </h2>
