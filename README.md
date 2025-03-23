@@ -1,13 +1,88 @@
-# React + Vite
+# Restaurant React Project 🍽️
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<table>
+  <tr>
+    <td>
+      <img width="300" src="https://github.com/user-attachments/assets/cb2e5c05-c690-4a45-b166-3591797dc647" />
+    </td>
+    <td>
+      <img width="300" src="https://github.com/user-attachments/assets/22751122-6d81-4ee2-b6b2-194cdc2de8ad" />
+    </td>
+    <td>
+      <img width="300" src="https://github.com/user-attachments/assets/f799dedb-7ad9-4e38-9afb-7f6665d6e773" />
+    </td>
+  </tr>
+</table>
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Expanding the ESLint configuration
+This project is a **Restaurant Ordering System** built with **React** and **Vite**, utilizing **JSONPlaceholder** as a dummy API for product data. The app allows users to browse restaurant menu items, add items to their cart, and proceed to checkout.
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
-# restaurant_app-react
+## Features
+
+- Browse menu items
+- Add items to cart
+- View cart details
+- Remove items from cart
+- Checkout process
+
+## Tech Stack
+
+- React
+- Vite
+- Bootstrap
+- JSONPlaceholder (dummy API)
+
+## Recommended IDE Setup
+
+- [VSCode](https://code.visualstudio.com/)
+- [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (for Vue 3 support)
+
+## Project Setup
+
+### Install Dependencies
+```sh
+npm install
+```
+
+### Build for Production
+```sh
+npm run build
+```
+
+### API Usage
+
+This project uses JSONPlaceholder as a dummy API to simulate restaurant menu data.
+
+Example API Endpoint:
+```sh
+https://jsonplaceholder.typicode.com/posts
+```
+
+### Installing JSONPlaceholder Locally
+If you want to use JSONPlaceholder locally, follow these steps: 
+1. Navigate to the database-jsonPlaceholder folder.
+2. Install JSON Server globally: sh Copy Edit
+
+```sh
+npm install -g json-server
+```
+
+3. Start the JSON server with the provided db.json file:
+```sh
+json-server --watch db.json --port 3000
+```
+
+4. The API will be available at:
+```sh
+http://localhost:3000/best-products
+http://localhost:3000/products
+http://localhost:3000/carts
+http://localhost:3000/orders
+```
+
+5. Contributing
+Feel free to fork this project, submit issues, or make pull requests.
+
+
+
