@@ -33,21 +33,11 @@ This project is a **Restaurant Ordering System** built with **React** and **Vite
 - Bootstrap
 - JSONPlaceholder (dummy API)
 
-## Recommended IDE Setup
-
-- [VSCode](https://code.visualstudio.com/)
-- [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (for Vue 3 support)
-
 ## Project Setup
 
 ### Install Dependencies
 ```sh
 npm install
-```
-
-### Build for Production
-```sh
-npm run build
 ```
 
 ### API Usage
@@ -68,9 +58,9 @@ If you want to use JSONPlaceholder locally, follow these steps:
 npm install -g json-server
 ```
 
-3. Start the JSON server with the provided db.json file:
+3. Start the JSON server thru cmd with the provided db.json file:
 ```sh
-json-server --watch db.json --port 3000
+npx json-server db.json
 ```
 
 4. The API will be available at:
